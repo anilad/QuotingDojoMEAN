@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Here are the awesome quotes!</h1>
+        <% if(quotes.length==0){ %>
+            <div class="container">
+                <p>There are no quotes added yet | <a href="/">Add a quote</a></p>
+            </div>
+        <% } %>
+        <% for(idx in quotes) {%>
+            <div class="container">
+                <p><%= quotes[idx].quote%></p>
+                <% var date = quotes[idx].createdAt.toDateString() 
+                var time = quotes[idx].createdAt.toLocaleTimeString('en-US', { hour12: true })%>
+                <p><%= " - " + quotes[idx].name + " at " + time + " " + date %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

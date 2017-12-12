@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Quoting Dojo!</h1>
+        <form action="/process" method="post">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" name="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="quote">Quote: </label>
+                <textarea class="form-control" name="quote" rows="3" placeholder="Enter quote"></textarea>
+            </div>
+
+            <button class="btn btn-primary">Add my quote!</button>
+        </form>
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <% for (var x in errors) { %>
+             <p class="text-danger"><%= errors[x].message %></p>
+            <% } %>
+        <% } %>
+        <br>
+        <a href="/quotes">
+            <button class="btn btn-primary">Skip to quotes!</button>
+        </a>
+    </div>
+</body>
+
+</html>
